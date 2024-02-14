@@ -16,6 +16,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <title> Rigi - Assignment </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+          rel="icon"
+          href="https://res.cloudinary.com/debwkutxb/image/upload/v1707912287/my-ecom/se7dokgwkyjx8fp3iihh.png"
+        />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
