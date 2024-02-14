@@ -1,10 +1,11 @@
+"use client";
 import React, { FC } from "react";
 import { videos } from "../../utils/constants";
 
 const Video: FC<{ video: any }> = ({ video }) => {
   const { title, subtitle } = video;
   return (
-    <div className="flex gap-3 p-2 pb-4 cursor-pointer mb-2 border-b border-gray-300">
+    <div className="flex gap-3 p-2 pb-4  mb-2 border-b border-gray-300">
       <img
         src={video.thumb}
         className="w-[150px] aspect-[14/9] rounded-lg"
@@ -18,12 +19,22 @@ const Video: FC<{ video: any }> = ({ video }) => {
   );
 };
 
-const Playlist = () => {
+const Playlist: FC<{ handleSetVideo: Function }> = ({ handleSetVideo }) => {
   return (
     <>
-      <div className="playlist-container max-h-[calc(100vh-80px)] overflow-y-scroll w-full lg:w-[30%] mt-10 lg:mt-0 p-5 pb-20">
+      <div className="playlist-container max-h-[calc(100vh-80px)] overflow-y-scroll w-full lg:w-[30%] mt-10 lg:mt-0 pt-0 p-5 pb-20">
         {videos.map((video) => (
-          <Video key={video.sources[0]} video={video} />
+          <div
+            key={video.sources}
+            className="cursor-pointer"
+            onClick={() => {
+              //   console.log(video.sources);
+
+              handleSetVideo(video);
+            }}
+          >
+            <Video video={video} />
+          </div>
         ))}
       </div>
     </>
