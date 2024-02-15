@@ -13,7 +13,7 @@ const Video: FC<{ video: any; isLast: boolean }> = ({ video, isLast }) => {
       <img
         src={video.thumb}
         className="w-[150px] aspect-[14/9] rounded-lg"
-        alt=""
+        alt="thumbnail"
       />
       <div className="info mt-1">
         <div className="title font-semibold">{title}</div>
@@ -29,13 +29,13 @@ const Playlist: FC<{ handleSetVideo: Function }> = ({ handleSetVideo }) => {
   const dragVideo = useRef<number>(0);
   const draggedOverVideo = useRef<number>(0);
 
-  function handleSort() {
+  const handleSort = () => {
     const playlistClone = [...playlist];
     const temp = playlistClone[dragVideo.current];
     playlistClone[dragVideo.current] = playlistClone[draggedOverVideo.current];
     playlistClone[draggedOverVideo.current] = temp;
     setPlaylist(playlistClone);
-  }
+  };
 
   return (
     <>
