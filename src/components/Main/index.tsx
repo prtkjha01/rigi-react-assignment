@@ -19,7 +19,7 @@ const index = () => {
     setVideo(vid);
   };
   return (
-    <div className="max-w-[1330px] m-auto min-h-[calc(100vh-80px)] w-full px-[15px]  py-10 lg:flex ">
+    <div className="max-w-[1330px] m-auto min-h-[calc(100vh-200px)] w-full px-[15px]  py-10 lg:flex ">
       <Video video={video} />
       <Playlist handleSetVideo={handleSetVideo} />
     </div>

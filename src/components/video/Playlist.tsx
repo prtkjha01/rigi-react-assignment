@@ -2,10 +2,14 @@
 import React, { FC } from "react";
 import { videos } from "../../utils/constants";
 
-const Video: FC<{ video: any }> = ({ video }) => {
+const Video: FC<{ video: any; isLast: boolean }> = ({ video, isLast }) => {
   const { title, subtitle } = video;
   return (
-    <div className="flex gap-3 p-2 pb-4  mb-2 border-b border-gray-300">
+    <div
+      className={`flex gap-3 p-2 pb-4  mb-2  ${
+        !isLast && "border-b border-gray-300"
+      } `}
+    >
       <img
         src={video.thumb}
         className="w-[150px] aspect-[14/9] rounded-lg"
@@ -22,8 +26,8 @@ const Video: FC<{ video: any }> = ({ video }) => {
 const Playlist: FC<{ handleSetVideo: Function }> = ({ handleSetVideo }) => {
   return (
     <>
-      <div className="playlist-container max-h-[calc(100vh-80px)] overflow-y-scroll w-full lg:w-[30%] mt-10 lg:mt-0 pt-0 p-5 pb-20">
-        {videos.map((video) => (
+      <div className="playlist-container max-h-[calc(100vh-200px)] overflow-y-scroll w-full lg:w-[30%] mt-10 lg:mt-0 pt-0 p-5">
+        {videos.map((video, index) => (
           <div
             key={video.sources}
             className="cursor-pointer"
@@ -33,7 +37,7 @@ const Playlist: FC<{ handleSetVideo: Function }> = ({ handleSetVideo }) => {
               handleSetVideo(video);
             }}
           >
-            <Video video={video} />
+            <Video video={video} isLast={index === videos.length - 1} />
           </div>
         ))}
       </div>

@@ -25,7 +25,11 @@ const Video: FC<{ video: any }> = ({ video }) => {
   return (
     <>
       <div className="video-container w-full lg:w-[70%]">
-        <video ref={videoRef} className="w-full h-auto rounded-lg" controls>
+        <video
+          ref={videoRef}
+          className="w-full h-auto rounded-lg"
+          controls={true}
+        >
           <source src={videoData.sources} type="video/mp4" />
           <track
             src="/path/to/captions.vtt"
@@ -37,7 +41,10 @@ const Video: FC<{ video: any }> = ({ video }) => {
         </video>
         <div className="info mt-5">
           <div className="title text-3xl font-semibold">{videoData.title}</div>
-          <div className="subtitle text-gray-400">{videoData.subtitle}</div>
+          <div className="subtitle text-gray-500">{videoData.subtitle}</div>
+          <div className="description text-gray-400 mt-5">
+            {videoData.description}
+          </div>
         </div>
       </div>
     </>
