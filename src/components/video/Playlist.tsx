@@ -6,18 +6,31 @@ const Video: FC<{ video: any; isLast: boolean }> = ({ video, isLast }) => {
   const { title, subtitle } = video;
   return (
     <div
-      className={`flex gap-3 p-2 pb-4  mb-2  ${
+      className={`flex gap-3 p-2 pb-4 justify-between  mb-2  ${
         !isLast && "border-b border-gray-300"
       } `}
     >
-      <img
-        src={video.thumb}
-        className="w-[150px] aspect-[14/9] rounded-lg"
-        alt="thumbnail"
-      />
-      <div className="info mt-1">
-        <div className="title font-semibold">{title}</div>
-        <div className="subtitle text-xs mt-1 text-gray-400">{subtitle}</div>
+      <div className="flex gap-3">
+        <img
+          src={video.thumb}
+          className="w-[150px] aspect-[14/9] rounded-lg"
+          alt="thumbnail"
+        />
+        <div className="info mt-1">
+          <div className="title font-semibold">{title}</div>
+          <div className="subtitle text-xs mt-1 text-gray-400">{subtitle}</div>
+        </div>
+      </div>
+      <div className="flex items-center">
+        <svg
+          viewBox="0 0 24 24"
+          className="h-5 w-5 stroke-gray-500"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M4 18L20 18" stroke-width="2" stroke-linecap="round" />
+          <path d="M4 12L20 12" stroke-width="2" stroke-linecap="round" />
+          <path d="M4 6L20 6" stroke-width="2" stroke-linecap="round" />
+        </svg>
       </div>
     </div>
   );

@@ -2,7 +2,6 @@
 import React, { FC, useEffect, useState, useRef } from "react";
 
 const Video: FC<{ video: any }> = ({ video }) => {
-  //   console.log(video);
   const [videoData, setVideoData] = useState(video);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   useEffect(() => {
@@ -27,8 +26,9 @@ const Video: FC<{ video: any }> = ({ video }) => {
       <div className="video-container w-full lg:w-[70%]">
         <video
           ref={videoRef}
-          className="w-full h-auto rounded-lg"
+          className="w-full h-auto rounded-xl"
           controls={true}
+          autoPlay
         >
           <source src={videoData.sources} type="video/mp4" />
           <track
